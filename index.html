@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 - Unit Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="//d15gdne58bo42a.cloudfront.net/icon-32x32.png">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <nav class="navbar">
+            <h1 class="heading">Unit <span>Converter</span></h1>
+        </nav>
+
+        <!-- Converter Form -->
+        <div class="converter-card">
+            <h2 class="card-heading">Unit Converter Expression Version</h2>
+            <!-- Property Menu -->
+            <form name="property" class="property-form">
+                <div>
+                    <select name="menu" id="menu" class="menu"
+                        onchange="UpdateMenu(this, document.form_a.unit_menu); UpdateMenu(this, document.form_b.unit_menu);"></select>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </div>
+            </form>
+
+            <div class="form">
+                <div class="left unit">
+                    <form name="form_a">
+                        <input type="text" name="unit_input" id="unit_input" class="input-field" placeholder="e.g. 0"
+                            onkeyup="CalculateUnit(document.form_a, document.form_b)">
+                        <div>
+                            <select name="unit_menu" class="unit_menu" id="unit_menu"
+                                onchange="CalculateUnit(document.form_b, document.form_a)" autofocus></select>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="mid">
+                    <p>=</p>
+                </div>
+
+                <div class="right unit">
+                    <form name="form_b">
+                        <input type="text" name="unit_input" id="unit_input" class="input-field" placeholder="e.g. 0"
+                            onkeyup="CalculateUnit(document.form_b, document.form_a)">
+                        <div>
+                            <select name="unit_menu" class="unit_menu" id="unit_menu"
+                                onchange="CalculateUnit(document.form_a, document.form_b)"></select>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculator -->
+    <div class="calc-icon">
+        <i class="fa-solid fa-calculator" onclick="openCalc()"></i>
+    </div>
+
+    <div class="calc-modal" id="calc-modal">
+        <div class="calc">
+            <div class="calc-header">
+                <h2>Calculator</h2>
+                <i class="fa-solid fa-xmark" onclick="closeCalc()"></i>
+            </div>
+            <div class="calc-body">
+                <div class="input-group">
+                    <input type="text" class="calc-input-field">
+                </div>
+                <div class="row">
+                    <button class="button clear">Clr</button>
+                    <button class="button">%</button>
+                    <button class="button use">USE</button>
+                </div>
+                <div class="row">
+                    <button class="button">7</button>
+                    <button class="button">8</button>
+                    <button class="button">9</button>
+                    <button class="button op">/</button>
+                </div>
+                <div class="row">
+                    <button class="button">4</button>
+                    <button class="button">5</button>
+                    <button class="button">6</button>
+                    <button class="button op">*</button>
+                </div>
+                <div class="row">
+                    <button class="button">1</button>
+                    <button class="button">2</button>
+                    <button class="button">3</button>
+                    <button class="button op">-</button>
+                </div>
+                <div class="row">
+                    <button class="button">0</button>
+                    <button class="button">.</button>
+                    <button class="button op">=</button>
+                    <button class="button op">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/6ccdd39db5.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
